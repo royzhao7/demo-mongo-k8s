@@ -1,0 +1,3 @@
+minikube addons enable ingress --images="KubeWebhookCertgenCreate=registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.3,KubeWebhookCertgenPatch=registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.3,IngressController=registry.k8s.io/ingress-nginx/controller:v1.11.2" 
+
+kubectl delete job.batch/ingress-nginx-admission-create job.batch/ingress-nginx-admission-patch   deployment.apps/ingress-nginx-controller   delete service/ingress-nginx-controller service/ingress-nginx-controller-admission -n ingress-nginx
